@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Add New Sale</h1>
+    <form method="post" action="{{ url_for('sales.add_sales_data') }}">
+        <div class="mb-3">
+            <label for="monthlyAmount" class="form-label">Monthly Amount</label>
+            <input type="number" class="form-control" name="monthly_amount" id="monthlyAmount" required>
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">Date</label>
+            <input type="date" class="form-control" name="date" id="date" required>
+        </div>
+        <div class="mb-3">
+            <label for="region" class="form-label">Region</label>
+            <input type="text" class="form-control" name="region" id="region" required>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Add Sale</button>
+            <a href="{{ url_for('sales.show_sales') }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
